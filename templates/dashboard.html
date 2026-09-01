@@ -1,0 +1,304 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard | InsightAI
+{% endblock %}
+
+{% block content %}
+
+<section class="dashboard-page">
+
+    <div class="dashboard-header">
+
+        <div>
+            <span class="section-tag">
+                CUSTOMER INTELLIGENCE
+            </span>
+
+            <h1>
+                Analytics
+                <span>Dashboard</span>
+            </h1>
+
+            <p>
+                Monitor your customer segmentation results and
+                discover meaningful insights from your data.
+            </p>
+        </div>
+
+        {% if has_data %}
+        <a href="{{ url_for('analytics') }}"
+           class="primary-btn">
+
+            View Full Analytics
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+        {% endif %}
+
+    </div>
+
+
+    {% if has_data %}
+
+    <!-- DASHBOARD STATISTICS -->
+
+    <div class="stats-grid">
+
+        <div class="dashboard-stat-card">
+
+            <div class="dashboard-stat-icon">
+
+                <i class="fa-solid fa-users"></i>
+
+            </div>
+
+            <div>
+
+                <span>Total Customers</span>
+
+                <h2>
+                    {{ total_customers }}
+                </h2>
+
+                <small>
+                    Records analyzed
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-stat-card">
+
+            <div class="dashboard-stat-icon">
+
+                <i class="fa-solid fa-layer-group"></i>
+
+            </div>
+
+            <div>
+
+                <span>Customer Clusters</span>
+
+                <h2>
+                    {{ clusters }}
+                </h2>
+
+                <small>
+                    Groups identified
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-stat-card">
+
+            <div class="dashboard-stat-icon">
+
+                <i class="fa-solid fa-wallet"></i>
+
+            </div>
+
+            <div>
+
+                <span>Average Income</span>
+
+                <h2>
+                    {{ avg_income }}
+                </h2>
+
+                <small>
+                    Dataset average
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-stat-card">
+
+            <div class="dashboard-stat-icon">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+            </div>
+
+            <div>
+
+                <span>Average Spending</span>
+
+                <h2>
+                    {{ avg_spending }}
+                </h2>
+
+                <small>
+                    Customer score
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODEL PERFORMANCE -->
+
+    <div class="dashboard-content-grid">
+
+        <div class="dashboard-panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="panel-label">
+                        MODEL PERFORMANCE
+                    </span>
+
+                    <h2>
+                        Segmentation Quality
+                    </h2>
+
+                </div>
+
+                <div class="model-status">
+
+                    <span></span>
+
+                    Completed
+
+                </div>
+
+            </div>
+
+
+            <div class="quality-score">
+
+                <div class="score-circle">
+
+                    {{ silhouette }}
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Silhouette Score
+                    </h3>
+
+                    <p>
+                        This score measures how well customers are
+                        grouped into meaningful clusters.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="model-info">
+
+                <div>
+
+                    <span>
+                        Algorithm
+                    </span>
+
+                    <strong>
+                        K-Means
+                    </strong>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Optimal Clusters
+                    </span>
+
+                    <strong>
+                        {{ clusters }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- QUICK ACTION -->
+
+        <div class="dashboard-panel quick-action-panel">
+
+            <span class="panel-label">
+                NEXT STEP
+            </span>
+
+            <h2>
+                Explore Customer Insights
+            </h2>
+
+            <p>
+                View customer clusters, distributions, and the
+                Elbow Method visualization.
+            </p>
+
+            <a href="{{ url_for('analytics') }}"
+               class="primary-btn">
+
+                Open Analytics
+
+                <i class="fa-solid fa-chart-pie"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    {% else %}
+
+    <!-- EMPTY DASHBOARD -->
+
+    <div class="empty-dashboard">
+
+        <div class="empty-icon">
+
+            <i class="fa-solid fa-chart-pie"></i>
+
+        </div>
+
+        <h2>
+            No Analysis Yet
+        </h2>
+
+        <p>
+            Upload a customer dataset and run the segmentation
+            algorithm to view your analytics dashboard.
+        </p>
+
+        <a href="{{ url_for('upload') }}"
+           class="primary-btn">
+
+            Upload Dataset
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

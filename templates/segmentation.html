@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block title %}
+Customer Segmentation | InsightAI
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-hero">
+
+    <div class="page-header">
+
+        <span class="section-tag">
+            STEP 02 — MACHINE LEARNING
+        </span>
+
+        <h1>
+            Customer
+            <span>Segmentation</span>
+        </h1>
+
+        <p>
+            Your dataset is ready. Review the available numerical
+            features and run the K-Means clustering algorithm to
+            discover meaningful customer groups.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="segmentation-section">
+
+    <div class="segmentation-card">
+
+        <div class="segmentation-icon">
+            <i class="fa-solid fa-brain"></i>
+        </div>
+
+        <h2>Ready for Analysis</h2>
+
+        <p>
+            InsightAI will automatically preprocess your numerical
+            features, standardize the data, identify the optimal
+            number of clusters, and perform K-Means segmentation.
+        </p>
+
+
+        <div class="feature-list">
+
+            <h3>
+                Available Features
+            </h3>
+
+            <div class="feature-tags">
+
+                {% for column in columns %}
+
+                    <span class="feature-tag">
+                        <i class="fa-solid fa-chart-column"></i>
+                        {{ column }}
+                    </span>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+
+        <div class="ml-steps">
+
+            <div class="ml-step">
+
+                <div class="step-icon">
+                    <i class="fa-solid fa-filter"></i>
+                </div>
+
+                <div>
+                    <strong>Data Preparation</strong>
+                    <span>Cleaning numerical features</span>
+                </div>
+
+            </div>
+
+
+            <div class="ml-step">
+
+                <div class="step-icon">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+
+                <div>
+                    <strong>Feature Scaling</strong>
+                    <span>Standardizing customer data</span>
+                </div>
+
+            </div>
+
+
+            <div class="ml-step">
+
+                <div class="step-icon">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+
+                <div>
+                    <strong>Optimal Clusters</strong>
+                    <span>Using Silhouette Score</span>
+                </div>
+
+            </div>
+
+
+            <div class="ml-step">
+
+                <div class="step-icon">
+                    <i class="fa-solid fa-circle-nodes"></i>
+                </div>
+
+                <div>
+                    <strong>K-Means Analysis</strong>
+                    <span>Creating customer segments</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <form method="POST">
+
+            <button
+                type="submit"
+                class="primary-btn run-analysis-btn"
+            >
+
+                <i class="fa-solid fa-play"></i>
+
+                Run Customer Segmentation
+
+            </button>
+
+        </form>
+
+
+        <p class="analysis-note">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            The system will automatically determine the best number
+            of customer clusters.
+
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

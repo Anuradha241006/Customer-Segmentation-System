@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}Customer Insights AI{% endblock %}
+    </title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <!-- Logo -->
+
+            <a href="{{ url_for('home') }}"
+               class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+
+                <div>
+                    <span class="logo-title">
+                        Insight<span>AI</span>
+                    </span>
+
+                    <span class="logo-subtitle">
+                        CUSTOMER ANALYTICS
+                    </span>
+                </div>
+
+            </a>
+
+
+            <!-- Navigation Links -->
+
+            <div class="nav-links">
+
+                <a href="{{ url_for('home') }}">
+                    Home
+                </a>
+
+                <a href="{{ url_for('dashboard') }}">
+                    Dashboard
+                </a>
+
+                <a href="{{ url_for('upload') }}">
+                    Upload Data
+                </a>
+
+                <a href="{{ url_for('segmentation') }}">
+                    Segmentation
+                </a>
+
+                <a href="{{ url_for('analytics') }}">
+                    Analytics
+                </a>
+
+            </div>
+
+
+            <!-- CTA Button -->
+
+            <a href="{{ url_for('upload') }}"
+               class="nav-button">
+
+                Start Analysis
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- FLASH MESSAGES -->
+
+    <div class="flash-container">
+
+        {% with messages =
+            get_flashed_messages(with_categories=true)
+        %}
+
+            {% if messages %}
+
+                {% for category, message in messages %}
+
+                    <div class="flash-message {{ category }}">
+
+                        <i class="fa-solid fa-circle-info"></i>
+
+                        <span>
+                            {{ message }}
+                        </span>
+
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main>
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div>
+
+                <div class="footer-logo">
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                    Insight<span>AI</span>
+
+                </div>
+
+                <p>
+                    Transforming customer data into
+                    meaningful business insights using
+                    Machine Learning.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="{{ url_for('home') }}">
+                    Home
+                </a>
+
+                <a href="{{ url_for('dashboard') }}">
+                    Dashboard
+                </a>
+
+                <a href="{{ url_for('upload') }}">
+                    Upload Dataset
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 InsightAI — Customer Segmentation Platform
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="{{ url_for('static',
+        filename='js/main.js') }}">
+    </script>
+
+</body>
+
+</html>

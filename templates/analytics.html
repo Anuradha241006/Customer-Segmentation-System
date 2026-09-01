@@ -1,0 +1,418 @@
+{% extends "base.html" %}
+
+{% block title %}
+Analytics | InsightAI
+{% endblock %}
+
+
+{% block content %}
+
+<section class="analytics-page">
+
+    <!-- PAGE HEADER -->
+
+    <div class="analytics-header">
+
+        <span class="section-tag">
+            STEP 03 — DATA INSIGHTS
+        </span>
+
+        <h1>
+            Customer
+            <span>Analytics</span>
+        </h1>
+
+        <p>
+            Explore customer clusters and visualize the patterns
+            discovered by the K-Means machine learning model.
+        </p>
+
+    </div>
+
+
+    <!-- MODEL SUMMARY -->
+
+    <div class="analytics-summary">
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                <i class="fa-solid fa-layer-group"></i>
+            </div>
+
+            <div>
+                <span>Optimal Clusters</span>
+                <strong>{{ optimal_k }}</strong>
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <div>
+                <span>Silhouette Score</span>
+                <strong>{{ silhouette }}</strong>
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon">
+                <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <div>
+                <span>Algorithm</span>
+                <strong>K-Means</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- VISUALIZATION GRID -->
+
+    <div class="analytics-grid">
+
+
+        <!-- CUSTOMER CLUSTERS -->
+
+        <div class="analytics-card-large">
+
+            <div class="analytics-card-header">
+
+                <div>
+
+                    <span class="panel-label">
+                        CUSTOMER SEGMENTS
+                    </span>
+
+                    <h2>
+                        Customer Cluster Visualization
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-image-container">
+
+                <img
+                    src="{{ url_for('static',
+                    filename='plots/customer_clusters.png') }}"
+                    alt="Customer Cluster Visualization"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- CLUSTER DISTRIBUTION -->
+
+        <div class="analytics-card-large">
+
+            <div class="analytics-card-header">
+
+                <div>
+
+                    <span class="panel-label">
+                        CUSTOMER DISTRIBUTION
+                    </span>
+
+                    <h2>
+                        Customers per Cluster
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-image-container">
+
+                <img
+                    src="{{ url_for('static',
+                    filename='plots/cluster_distribution.png') }}"
+                    alt="Cluster Distribution"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ELBOW METHOD -->
+
+    <div class="elbow-card">
+
+        <div class="analytics-card-header">
+
+            <div>
+
+                <span class="panel-label">
+                    CLUSTER ANALYSIS
+                </span>
+
+                <h2>
+                    Elbow Method
+                </h2>
+
+                <p>
+                    The Elbow Method helps visualize how clustering
+                    performance changes with different values of K.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="chart-image-container elbow-image">
+
+            <img
+                src="{{ url_for('static',
+                filename='plots/elbow_method.png') }}"
+                alt="Elbow Method"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- CLUSTER SUMMARY -->
+
+    <div class="cluster-summary-section">
+
+        <div class="analytics-card-header">
+
+            <div>
+
+                <span class="panel-label">
+                    CLUSTER INSIGHTS
+                </span>
+
+                <h2>
+                    Customer Cluster Summary
+                </h2>
+
+                <p>
+                    Average feature values for each customer group.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        {% if cluster_summary %}
+
+                            {% for key in cluster_summary[0].keys() %}
+
+                                <th>
+                                    {{ key }}
+                                </th>
+
+                            {% endfor %}
+
+                        {% endif %}
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for row in cluster_summary %}
+
+                        <tr>
+
+                            {% for value in row.values() %}
+
+                                <td>
+                                    {{ value }}
+                                </td>
+
+                            {% endfor %}
+
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+    <!-- CUSTOMER SEGMENT INSIGHTS -->
+
+<div class="insights-section">
+
+    <div class="analytics-card-header">
+
+        <div>
+
+            <span class="panel-label">
+                SMART INSIGHTS
+            </span>
+
+            <h2>
+                Customer Segment Insights
+            </h2>
+
+            <p>
+                Automatically generated insights based on customer
+                income and spending behavior.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="insights-grid">
+
+        {% for insight in cluster_insights %}
+
+        <div class="insight-card">
+
+            <div class="insight-top">
+
+                <span class="cluster-badge">
+                    Cluster {{ insight.cluster }}
+                </span>
+
+                <div class="insight-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+            </div>
+
+
+            <h3>
+                {{ insight.name }}
+            </h3>
+
+
+            <p class="insight-description">
+                {{ insight.description }}
+            </p>
+
+
+            <div class="insight-stats">
+
+                <div class="insight-stat">
+
+                    <span>
+                        Customers
+                    </span>
+
+                    <strong>
+                        {{ insight.customers }}
+                    </strong>
+
+                </div>
+
+
+                <div class="insight-stat">
+
+                    <span>
+                        Avg Income
+                    </span>
+
+                    <strong>
+                        {{ insight.avg_income }}
+                    </strong>
+
+                </div>
+
+
+                <div class="insight-stat">
+
+                    <span>
+                        Avg Spending
+                    </span>
+
+                    <strong>
+                        {{ insight.avg_spending }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<!-- ACTION BUTTONS -->
+
+<div class="analytics-action">
+
+    <!-- ANALYZE ANOTHER DATASET -->
+
+    <a href="{{ url_for('upload') }}"
+       class="secondary-btn">
+
+        <i class="fa-solid fa-upload"></i>
+
+        Analyze Another Dataset
+
+    </a>
+
+
+    <!-- DOWNLOAD RESULTS -->
+
+    <a href="{{ url_for('download_results') }}"
+       class="secondary-btn">
+
+        <i class="fa-solid fa-download"></i>
+
+        Download Results
+
+    </a>
+
+
+    <!-- BACK TO DASHBOARD -->
+
+    <a href="{{ url_for('dashboard') }}"
+       class="primary-btn">
+
+        Back to Dashboard
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </a>
+
+</div>
+
+</section>
+
+{% endblock %}

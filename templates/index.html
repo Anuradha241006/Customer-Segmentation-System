@@ -1,0 +1,499 @@
+{% extends "base.html" %}
+
+{% block title %}
+InsightAI | Customer Segmentation Platform
+{% endblock %}
+
+
+{% block content %}
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            <i class="fa-solid fa-sparkles"></i>
+            AI-POWERED CUSTOMER ANALYTICS
+        </div>
+
+        <h1>
+            Understand Your Customers.
+            <span>Grow Your Business.</span>
+        </h1>
+
+        <p>
+            Transform raw customer data into meaningful insights using
+            Machine Learning and intelligent customer segmentation.
+            Discover patterns, identify valuable customers, and make
+            smarter business decisions.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="{{ url_for('upload') }}"
+               class="primary-btn">
+
+                Start Analysis
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+
+            <a href="{{ url_for('dashboard') }}"
+               class="secondary-btn">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                View Dashboard
+
+            </a>
+
+        </div>
+
+
+        <div class="hero-stats">
+
+            <div class="stat">
+
+                <strong>
+                    K-Means
+                </strong>
+
+                <span>
+                    ML Algorithm
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    Smart
+                </strong>
+
+                <span>
+                    Customer Insights
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    Data
+                </strong>
+
+                <span>
+                    Driven Decisions
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO VISUAL -->
+
+    <div class="hero-visual">
+
+        <div class="analytics-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <span class="small-label">
+                        CUSTOMER ANALYTICS
+                    </span>
+
+                    <h3>
+                        Segmentation Overview
+                    </h3>
+
+                </div>
+
+
+                <div class="live-status">
+
+                    <span></span>
+
+                    Live Analysis
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-area">
+
+                <div class="chart-line line-1"></div>
+
+                <div class="chart-line line-2"></div>
+
+                <div class="chart-line line-3"></div>
+
+                <div class="chart-line line-4"></div>
+
+
+                <div class="chart-points">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+
+            <div class="cluster-preview">
+
+                <div class="cluster-item">
+
+                    <div class="cluster-icon">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Premium
+                        </strong>
+
+                        <span>
+                            High Value
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="cluster-item">
+
+                    <div class="cluster-icon">
+
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Growth
+                        </strong>
+
+                        <span>
+                            Potential
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="floating-card floating-one">
+
+            <i class="fa-solid fa-users"></i>
+
+            <div>
+
+                <strong>
+                    Customer Groups
+                </strong>
+
+                <span>
+                    AI Segmentation
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="floating-card floating-two">
+
+            <i class="fa-solid fa-brain"></i>
+
+            <div>
+
+                <strong>
+                    Machine Learning
+                </strong>
+
+                <span>
+                    Smart Insights
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- TRUST / FEATURES -->
+
+<section class="features-section">
+
+    <div class="section-heading">
+
+        <span class="section-tag">
+            PLATFORM FEATURES
+        </span>
+
+        <h2>
+            Everything You Need for
+            <span>Customer Intelligence</span>
+        </h2>
+
+        <p>
+            A complete machine learning workflow for understanding
+            customer behavior and generating actionable business insights.
+        </p>
+
+    </div>
+
+
+    <div class="features-grid">
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                <i class="fa-solid fa-file-arrow-up"></i>
+
+            </div>
+
+            <h3>
+                Smart Data Upload
+            </h3>
+
+            <p>
+                Upload your customer dataset securely and prepare
+                it for machine learning analysis.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                <i class="fa-solid fa-brain"></i>
+
+            </div>
+
+            <h3>
+                K-Means Clustering
+            </h3>
+
+            <p>
+                Automatically group customers with similar
+                characteristics and behavior.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                <i class="fa-solid fa-chart-pie"></i>
+
+            </div>
+
+            <h3>
+                Visual Analytics
+            </h3>
+
+            <p>
+                Understand customer groups through professional
+                charts and visual insights.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+            </div>
+
+            <h3>
+                Business Insights
+            </h3>
+
+            <p>
+                Transform clustering results into meaningful
+                recommendations for smarter decisions.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- HOW IT WORKS -->
+
+<section class="process-section">
+
+    <div class="section-heading">
+
+        <span class="section-tag">
+            HOW IT WORKS
+        </span>
+
+        <h2>
+            From Data to <span>Insights</span>
+        </h2>
+
+    </div>
+
+
+    <div class="process-grid">
+
+
+        <div class="process-card">
+
+            <div class="process-number">
+                01
+            </div>
+
+            <i class="fa-solid fa-upload"></i>
+
+            <h3>
+                Upload Data
+            </h3>
+
+            <p>
+                Upload your customer dataset in CSV format.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="process-number">
+                02
+            </div>
+
+            <i class="fa-solid fa-filter"></i>
+
+            <h3>
+                Process Data
+            </h3>
+
+            <p>
+                Automatically prepare numerical customer features.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="process-number">
+                03
+            </div>
+
+            <i class="fa-solid fa-circle-nodes"></i>
+
+            <h3>
+                Segment Customers
+            </h3>
+
+            <p>
+                Apply K-Means clustering to identify groups.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="process-number">
+                04
+            </div>
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <h3>
+                Get Insights
+            </h3>
+
+            <p>
+                Analyze results and make better business decisions.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- CTA -->
+
+<section class="cta-section">
+
+    <div class="cta-content">
+
+        <span class="section-tag">
+            READY TO START?
+        </span>
+
+        <h2>
+            Turn Customer Data Into
+            <span>Business Intelligence.</span>
+        </h2>
+
+        <p>
+            Upload your dataset and discover meaningful customer
+            segments using Machine Learning.
+        </p>
+
+        <a href="{{ url_for('upload') }}"
+           class="primary-btn">
+
+            Start Customer Analysis
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

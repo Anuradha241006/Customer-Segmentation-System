@@ -1,0 +1,90 @@
+import pandas as pd
+import os
+
+
+# --------------------------------------------------
+# FILE PATHS
+# --------------------------------------------------
+
+RAW_DATA_PATH = "data/raw/customer_data.csv"
+
+PROCESSED_DATA_PATH = (
+    "data/processed/processed_customer_data.csv"
+)
+
+
+# --------------------------------------------------
+# LOAD DATASET
+# --------------------------------------------------
+
+print("Loading customer dataset...")
+
+df = pd.read_csv(RAW_DATA_PATH)
+
+print("Original Dataset Shape:")
+print(df.shape)
+
+print("\nColumns:")
+print(df.columns.tolist())
+
+
+# --------------------------------------------------
+# REMOVE DUPLICATES
+# --------------------------------------------------
+
+duplicates_before = df.duplicated().sum()
+
+print("\nDuplicate Records:", duplicates_before)
+
+df = df.drop_duplicates()
+
+
+# --------------------------------------------------
+# HANDLE MISSING VALUES
+# --------------------------------------------------
+
+print("\nMissing Values:")
+
+print(df.isnull().sum())
+
+
+# Remove rows containing missing values
+df = df.dropna()
+
+
+# --------------------------------------------------
+# REMOVE UNNECESSARY SPACES
+# --------------------------------------------------
+
+df.columns = df.columns.str.strip()
+
+
+# --------------------------------------------------
+# SAVE PROCESSED DATASET
+# --------------------------------------------------
+
+os.makedirs(
+    "data/processed",
+    exist_ok=True
+)
+
+df.to_csv(
+    PROCESSED_DATA_PATH,
+    index=False
+)
+
+
+# --------------------------------------------------
+# FINAL OUTPUT
+# --------------------------------------------------
+
+print("\nPreprocessing Completed Successfully!")
+
+print("\nProcessed Dataset Shape:")
+print(df.shape)
+
+print(
+    "\nProcessed dataset saved at:"
+)
+
+print(PROCESSED_DATA_PATH)

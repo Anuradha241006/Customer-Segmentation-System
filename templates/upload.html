@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block title %}
+Upload Dataset | InsightAI
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+
+    <div class="page-header">
+
+        <span class="section-tag">
+            STEP 01 — DATA UPLOAD
+        </span>
+
+        <h1>
+            Upload Your
+            <span>Customer Dataset</span>
+        </h1>
+
+        <p>
+            Upload a CSV file containing customer information.
+            Our system will prepare the data for intelligent
+            customer segmentation.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="upload-section">
+
+    <div class="upload-card">
+
+        <div class="upload-icon">
+
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+
+        </div>
+
+        <h2>
+            Upload CSV Dataset
+        </h2>
+
+        <p>
+            Select your customer dataset and begin the
+            machine learning analysis.
+        </p>
+
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            <label class="file-upload-box"
+                   for="dataset">
+
+                <i class="fa-solid fa-file-csv"></i>
+
+                <span id="file-name">
+                    Click to select a CSV file
+                </span>
+
+                <small>
+                    CSV files only
+                </small>
+
+            </label>
+
+
+            <input
+                type="file"
+                id="dataset"
+                name="dataset"
+                accept=".csv"
+                required
+            >
+
+
+            <button type="submit"
+                    class="primary-btn upload-btn">
+
+                Upload & Continue
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </form>
+
+
+        <div class="upload-info">
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                CSV Format
+
+            </div>
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Numerical Features
+
+            </div>
+
+            <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                ML Ready
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
