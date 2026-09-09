@@ -1,5 +1,9 @@
 🎯 CUSTOMER SEGMENTATION SYSTEM
 
+A professional Machine Learning-based web application that analyzes customer data and groups customers into different segments based on their similarities, characteristics, and behavior.
+
+The project performs data preprocessing, feature selection, data scaling, K-Means clustering, cluster evaluation using Silhouette Score, Exploratory Data Analysis, customer segmentation, data visualization, and interactive analytics through a Flask web application.
+
 📌 Project Overview
 
 Customer Segmentation System is a Machine Learning-based web application developed to group customers into different segments based on their similarities and characteristics.
