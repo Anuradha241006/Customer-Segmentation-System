@@ -25,13 +25,9 @@ The system uses the K-Means Clustering algorithm to group similar customers into
 🛠️ Technologies Used
 
 💻 Programming Language
-
 Python
-
 🌐 Web Framework
-
 Flask
-
 🤖 Machine Learning
 Scikit-learn
 K-Means Clustering
@@ -90,31 +86,18 @@ Customer-Segmentation-System/
 ⚙️ Working Process
 
 📥 Data Collection
-
 Customer data is provided to the system in CSV format.
-
 🧹 Data Preprocessing
-
 The dataset is cleaned and prepared for analysis.
-
 🔢 Feature Selection
-
 Relevant numerical features are selected for customer segmentation. Customer ID and other identifier columns are excluded from the clustering process.
-
 ⚖️ Data Scaling
-
 The selected features are scaled using StandardScaler. This helps ensure that differences in feature value ranges do not negatively affect the clustering process.
-
 🔍 Finding the Best Number of Clusters
-
 Different cluster values are tested, and the Silhouette Score is used to evaluate the quality of clustering.
-
 🤖 K-Means Clustering
-
 The K-Means algorithm groups customers with similar characteristics into different clusters.
-
 📊 Result Visualization
-
 The clustering results and customer segments are displayed using graphs and visualizations.
 
 ✨ Features
@@ -143,30 +126,18 @@ The Customer Segmentation System can be used for:
 🚀 Installation and Setup
 
 1️⃣ Download the Project
-
 Clone or download the project.
-
 2️⃣ Open the Project Folder
-
 Open the Customer Segmentation System project folder.
-
 3️⃣ Create Virtual Environment
-
 Create and activate a Python virtual environment.
-
 4️⃣ Install Required Libraries
-
 Install all required libraries using the requirements.txt file.
-
 5️⃣ Run the Application
-
 Run:
-
 python app.py
 6️⃣ Open in Browser
-
 Open:
-
 http://127.0.0.1:5000/
 
 🔮 Future Enhancements
@@ -186,4 +157,5 @@ Anuradha Bayana
 B.Tech – Artificial Intelligence and Data Science
 
 👥 Customer Segmentation System
+
 Built with Python, Machine Learning, K-Means Clustering, Flask, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, HTML, CSS, JavaScript, and GitHub.
