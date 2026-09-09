@@ -44,6 +44,45 @@ HTML
 CSS
 JavaScript
 
+📁 Project Structure
+
+Customer-Segmentation-System/
+│
+├── app.py
+├── README.md
+├── requirements.txt
+├── .gitignore
+│
+├── data/
+│   ├── raw/
+│   │   └── customer_data.csv
+│   └── processed/
+│       └── processed_customer_data.csv
+│
+├── models/
+│
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── main.js
+│   └── plots/
+│       ├── cluster_distribution.png
+│       ├── customer_clusters.png
+│       └── elbow_method.png
+│
+├── templates/
+│   ├── base.html
+│   ├── index.html
+│   ├── upload.html
+│   ├── segmentation.html
+│   ├── analytics.html
+│   └── dashboard.html
+│
+└── uploads/
+    ├── customer_segmentation_dataset.csv
+    └── segmented_customer_data.csv
+
 ⚙️ Working Process
 
 📥 Data Collection
@@ -142,6 +181,5 @@ Anuradha Bayana
 
 B.Tech – Artificial Intelligence and Data Science
 
-📄 License
-
-This project is developed for educational and academic purposes.
+👥 Customer Segmentation System
+Built with Python, Machine Learning, K-Means Clustering, Flask, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, HTML, CSS, JavaScript, and GitHub.
